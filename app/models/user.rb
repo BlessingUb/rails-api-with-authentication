@@ -5,9 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   encrypts :private_api_key
+  blind_index :private_api_key
+  
   # before_create :set_private_api_key
   has_many :posts, dependent: :destroy
-  validates :private_api_key, uniqueness: true 
+  validates :private_api_key, uniqueness: true, allow_blank: true 
 
   private
 
