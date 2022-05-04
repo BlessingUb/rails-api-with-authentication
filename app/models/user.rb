@@ -3,8 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  before_create :set_private_api_key
+         
+  encrypts :private_api_key
+  # before_create :set_private_api_key
 
   validates :private_api_key, uniqueness: true 
 
