@@ -5,7 +5,6 @@
 # below each fixture, per the syntax in the comments below
 #
 one: {}
-# column: value
-#
-two: {}
-# column: value
+email: $LABEL@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  private_api_key: <%= SecureRandom.hex %> 
